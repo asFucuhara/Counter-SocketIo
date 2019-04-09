@@ -1,7 +1,9 @@
 const redis = require('redis-node');
 const { promisify } = require('util');
+const {REDIS_PORT, REDIS_HOST, REDIS_AUTH} = require('../config/keys');
 
-const client = redis.createClient();
+const client = redis.createClient(REDIS_PORT, REDIS_HOST);
+client.auth(REDIS_AUTH);
 
 const counters = {};
 
@@ -9,7 +11,7 @@ client.on('error', function(err) {
   console.log('Error ' + err);
 });
 
-client.on('connect', () => console.log('Redis is Ready'));
+client.on('connect', () => console.log('Redis connect'));
 
 const getAsync = promisify(client.get).bind(client);
 
