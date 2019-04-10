@@ -1,6 +1,7 @@
 # Counter-SocketIo
 
  This is the back end for Counter with socketIo and was made solely for the purpose of learning how to deal with web sockets.
+ App: http://counter-socketio.herokuapp.com/
 
 #### How to use it:
   - The front end is a SPA(single page aplication) without routes(for now) with a counter on the top and two buttons:
